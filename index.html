@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Xinyan - Personal Homepage</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans SC (Extra Light & Light) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    },
+                    colors: {
+                        mint: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #fcfcfc;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor to use custom mint cursor */
+        }
+        
+        /* Custom Mint Cursor styling */
+        .custom-cursor {
+            width: 8px;
+            height: 8px;
+            background-color: #bcd8ee; /* Mint green #34d399*/
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .custom-cursor-follower {
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.08s ease-out, width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+        }
+        
+        /* Interactive scale state for cursor */
+        .cursor-hover .custom-cursor {
+            width: 12px;
+            height: 12px;
+            background-color: #059669;
+        }
+        .cursor-hover .custom-cursor-follower {
+            width: 48px;
+            height: 48px;
+            border-color: rgba(5, 150, 105, 0.8);
+            background-color: rgba(167, 243, 208, 0.15);
+        }
+
+        /* Glassmorphism Classes */
+        .glass {
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .glass-dark {
+            background: rgba(15, 15, 15, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hide Scrollbar but preserve functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Hero Text Interaction and Menu Dropdown */
+        .hero-dropdown {
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hero-container:hover .hero-dropdown {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        /* Folder Lifting Effects */
+        .folder-container {
+            perspective: 1000px;
+        }
+        .folder {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+            transform-style: preserve-3d;
+        }
+        .folder:hover {
+            transform: rotateY(10deg) rotateX(10deg) translateY(-8px);
+            box-shadow: 0 20px 40px rgba(167, 243, 208, 0.25);
+        }
+        .folder-back {
+            background: #e2e8f0;
+            border-radius: 8px 24px 8px 8px;
+        }
+        .folder-front {
+            background: #f1f5f9;
+            transform: translateZ(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+        }
+        .folder:hover .folder-front {
+            transform: translateZ(24px) rotateX(-5deg);
+        }
+
+        /* MacBook Display styling */
+        .macbook-screen {
+            box-shadow: inset 0 0 0 4px #1e1e1e;
+            border-radius: 12px 12px 0 0;
+            background: #0f172a;
+        }
+        .macbook-body {
+            background: linear-gradient(to bottom, #e2e8f0, #cbd5e1);
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        /* Page Dots Navigation active glow */
+        .active-dot {
+            background-color: #34d399 !important;
+            transform: scale(1.3);
+            box-shadow: 0 0 8px #34d399;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-stone-800 selection:bg-mint-200">
+
+    <!-- Custom Pointer -->
+    <div id="cursor" class="custom-cursor hidden md:block"></div>
+    <div id="follower" class="custom-cursor-follower hidden md:block"></div>
+
+    <!-- Floating Global Navigation (Glassmorphic Top-Bar) -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass px-6 py-3 rounded-full flex items-center gap-8 shadow-sm transition-all duration-300 hover:shadow-md max-w-[90%] md:max-w-max">
+        <a href="#home" class="nav-link text-xs tracking-widest text-stone-500 hover:text-stone-900 transition-colors uppercase font-light">Home</a>
+        <a href="#about" class="nav-link text-xs tracking-widest text-stone-500 hover:text-stone-900 transition-colors uppercase font-light">About</a>
+        <a href="#skills" class="nav-link text-xs tracking-widest text-stone-500 hover:text-stone-900 transition-colors uppercase font-light">Skills</a>
+        <a href="#experience" class="nav-link text-xs tracking-widest text-stone-500 hover:text-stone-900 transition-colors uppercase font-light">Experience</a>
+        <a href="#project" class="nav-link text-xs tracking-widest text-stone-500 hover:text-stone-900 transition-colors uppercase font-light">Projects</a>
+        <a href="#contact" class="nav-link text-xs tracking-widest text-stone-500 hover:text-stone-900 transition-colors uppercase font-light">Contact</a>
+    </nav>
+
+    <!-- Side Dot Tracker Navigation -->
+    <div class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden flex-col gap-4 md:flex">
+        <a href="#home" data-section="home" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#about" data-section="about" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#skills" data-section="skills" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#experience" data-section="experience" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#project" data-section="project" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#contact" data-section="contact" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+    </div>
+
+    <!-- ================= PAGE 1: HERO SECTION ================= -->
+    <section id="home" class="relative min-h-screen w-full flex flex-col justify-center items-center bg-[#fafaf9] overflow-hidden px-4">
+        <!-- Background subtle mint ambient glow -->
+        <div class="absolute w-[600px] h-[600px] rounded-full bg-mint-100/30 blur-[130px] -top-20 -left-20 pointer-events-none"></div>
+        <div class="absolute w-[500px] h-[500px] rounded-full bg-mint-50/25 blur-[100px] -bottom-20 -right-20 pointer-events-none"></div>
+
+
+        <!-- Interactive Text Container -->
+        <div class="hero-container relative flex flex-col items-center group py-12">
+            <!-- Center Name -->
+            <h1 class="text-5xl md:text-8xl font-extralight tracking-tight text-stone-800 transition-all duration-500 group-hover:text-mint-600 select-none pb-4 relative z-20 cursor-default">
+                Song Xinyan
+            </h1>
+            <p class="text-xs uppercase tracking-[0.2em] text-stone-400 mt-2 group-hover:opacity-0 transition-opacity duration-300 z-10 font-light">
+                Hover to explore
+            </p>
+        
+            <!-- Sophisticated Interactive Dropdown Drop-down Menu -->
+            <div class="hero-dropdown absolute top-full left-1/2 -translate-x-1/2 z-30 rounded-2xl glass p-3 shadow-xl mt-4" style="width: max-content; min-width: 200px;">
+                <div class="flex flex-col gap-1 text-center">
+                    <a href="#about" class="dropdown-item py-3 px-6 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                        About Me
+                    </a>
+                    <a href="#skills" class="dropdown-item py-3 px-6 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                        Skills
+                    </a>
+                    <a href="#experience" class="dropdown-item py-3 px-6 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                        Experience
+                    </a>
+                    <a href="#project" class="dropdown-item py-3 px-6 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                        Project
+                    </a>
+                    <a href="#contact" class="dropdown-item py-3 px-6 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Interactive down indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone-400">
+            <span class="text-[10px] uppercase tracking-widest font-light">Scroll Down</span>
+            <div class="w-[1px] h-8 bg-gradient-to-b from-stone-300 to-transparent animate-pulse"></div>
+        </div>
+    </section>
+
+    <!-- ================= PAGE 2: ABOUT ME ================= -->
+    <section id="about" class="relative min-h-screen w-full flex flex-col justify-center bg-white px-6 md:px-24 py-24 overflow-hidden">
+        <!-- Left top small title -->
+        <div class="absolute top-12 left-6 md:left-24">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-stone-400 font-light">About Me</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-7xl mx-auto w-full relative z-10">
+            
+            <!-- Left Side: Profile Photo / Graphic Frame -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-start w-full">
+                <div class="relative w-72 h-96 md:w-80 md:h-[450px] rounded-2xl overflow-hidden glass shadow-xl group border border-stone-200/50 p-3">
+                    <div class="w-full h-full rounded-xl bg-[#ebebeb] overflow-hidden relative flex flex-col justify-end p-6">
+                        <!-- <!-- Premium abstract graduate design SVG vector styling -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                            <svg class="w-full h-full text-stone-300" viewBox="0 0 200 200" fill="currentColor">
+                                <circle cx="100" cy="80" r="32" class="fill-stone-400/50" />
+                                <path d="M50,160 C50,125 70,115 100,115 C130,115 150,125 150,160 Z" class="fill-stone-400/50" />
+                                <path d="M100,32 L60,52 L100,72 L140,52 Z" class="fill-stone-500/70" />
+                                <line x1="140" y1="52" x2="140" y2="85" stroke="currentColor" stroke-width="4" stroke-linecap="round" class="text-stone-500" />
+                                <circle cx="140" cy="87" r="4" class="fill-stone-600" />
+                            </svg>
+                        </div> -->
+                        
+                        <div class="absolute inset-0 flex items-center justify-center opacity-100 group-hover:scale-105 transition-transform duration-700">
+                            <img 
+                                src="./photo/plot-songxinyan.jpg" 
+                                alt="Song Xinyan"
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+                        
+                        <!-- Premium deep gray filter background mesh overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-stone-800/20 to-transparent mix-blend-multiply"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="text-xs tracking-widest text-mint-300 uppercase font-light">Song Xinyan</span>
+                            <h3 class="text-lg text-white font-light tracking-wide mt-1">Computer Science Student</h3>
+                            <p class="text-[11px] text-stone-300 font-light mt-1">CUHKSZ CS Alumna • 2026</p>
+                            <p class="text-[11px] text-stone-300 font-light mt-0.5">Columbia University, School of Engineering — M.S. in AI (Robotics Perception) • 2026 Fall</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Clean Structured Sections -->
+            <div class="lg:col-span-7 flex flex-col justify-between h-full space-y-8">
+                
+                <!-- Section: Profile -->
+                <div class="border-b border-stone-100 pb-6">
+                    <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-2">Profile</h3>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base">
+                        A persistent, tech-driven researcher and engineer with solid technical foundations in Computer Science. Specialized in automated testing pipelines, machine learning algorithms, computer vision pipelines, and multi-robot autonomous navigation workflows.
+                    </p>
+                </div>
+
+                <!-- Section: Education -->
+                <div class="border-b border-stone-100 pb-6">
+                    <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-3">Education</h3>
+                    <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-2">
+                        <div>
+                            <h4 class="text-sm md:text-base font-normal text-stone-800">The Chinese University of Hong Kong, Shenzhen</h4>
+                            <p class="text-xs text-stone-500 mt-0.5">School of Data Science, B.S. in Computer Science</p>
+                        </div>
+                        <div class="text-left md:text-right">
+                            <span class="text-xs bg-stone-100 text-stone-600 px-2.5 py-1 rounded-full font-light">Sep 2022 – Jun 2026</span>
+                            <p class="text-xs text-stone-500 mt-1">GPA: <span class="text-stone-800 font-medium">3.5 / 4.0</span></p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-xs text-stone-400 block uppercase tracking-wider mb-1.5 font-light">Core Courses</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-[#f4f4f5] text-stone-600 px-3 py-1 rounded-md font-light">Machine Learning</span>
+                            <span class="text-xs bg-[#f4f4f5] text-stone-600 px-3 py-1 rounded-md font-light">Robotics</span>
+                            <span class="text-xs bg-[#f4f4f5] text-stone-600 px-3 py-1 rounded-md font-light">Computer Architecture</span>
+                            <span class="text-xs bg-[#f4f4f5] text-stone-600 px-3 py-1 rounded-md font-light">Software Engineering</span>
+                            <span class="text-xs bg-[#f4f4f5] text-stone-600 px-3 py-1 rounded-md font-light">Database Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid layout for Honors and Languages -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Academic Honors -->
+                    <div class="glass-dark p-5 rounded-2xl border border-stone-100">
+                        <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-3">Academic Honors</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 text-xs md:text-sm text-stone-600 font-light">
+                                <span class="text-mint-500 mt-1"><i class="fa-solid fa-award"></i></span>
+                                <div>
+                                    <span class="font-normal text-stone-800">Dean’s Honor List</span>
+                                    <p class="text-[10px] text-stone-400 mt-0.5">CUHK-Shenzhen</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="glass-dark p-5 rounded-2xl border border-stone-100">
+                        <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-3">Languages</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="font-light text-stone-600">Chinese</span>
+                                    <span class="text-stone-400 font-light">Native</span>
+                                </div>
+                                <div class="w-full bg-stone-200 h-[3px] rounded-full overflow-hidden">
+                                    <div class="bg-mint-400 h-full w-full"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="font-light text-stone-600">English</span>
+                                    <span class="text-stone-400 font-light">TOEFL 107 (Fluent)</span>
+                                </div>
+                                <div class="w-full bg-stone-200 h-[3px] rounded-full overflow-hidden">
+                                    <div class="bg-mint-400 h-full w-[90%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PAGE 3: SKILLS ================= -->
+    <section id="skills" class="relative min-h-screen w-full flex flex-col justify-center bg-[#fbfbfb] px-6 md:px-24 py-24 overflow-hidden">
+        <!-- Left top small title -->
+        <div class="absolute top-12 left-6 md:left-24">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-stone-400 font-light">Skills</h2>
+        </div>
+
+        <div class="max-w-6xl mx-auto w-full flex flex-col items-center justify-center relative z-10 mt-6">
+            
+            <!-- MacBook Minimalist Device Container -->
+            <div class="w-full max-w-[850px] flex flex-col items-center">
+                
+                <!-- MacBook Screen Frame -->
+                <div class="macbook-screen w-full aspect-[16/10] max-h-[480px] p-6 flex flex-col relative overflow-hidden shadow-2xl border-4 border-[#2d3748]">
+                    <!-- Camera Dot & Ambient light -->
+                    <div class="absolute top-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+                        <div class="w-1.5 h-1.5 rounded-full bg-[#111]"></div>
+                        <div class="w-1 h-1 rounded-full bg-blue-500/60 opacity-60"></div>
+                    </div>
+
+                    <!-- Screen Top bar styling -->
+                    <div class="flex items-center justify-between pb-3 border-b border-slate-800/80 mb-4">
+                        <div class="flex items-center gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        </div>
+                        <span class="text-[10px] tracking-widest text-slate-500 font-mono uppercase">song_xinyan_skills.json</span>
+                        <div class="w-12"></div>
+                    </div>
+
+                    <!-- Overlapping, Clickable / Slidably Scrollable Translucent Round Square Glass Cards -->
+                    <div class="flex-1 flex flex-col justify-center overflow-hidden relative">
+                        <!-- Horizontal Sliding Track Container -->
+                        <div id="skills-track" class="flex gap-6 overflow-x-auto no-scrollbar py-4 px-2 snap-x snap-mandatory scroll-smooth" style="scroll-behavior: smooth;">
+                            
+                            <!-- Skill Card 1: Languages & Logic -->
+                            <!-- <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-mint-300 transition-all"> -->
+                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-mint-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
+                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-code"></i></div>
+                                <div>
+                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">01 / Languages</span>
+                                    <h4 class="text-stone-800 font-medium text-lg mb-4">Core Programming</h4>
+                                    <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Strong foundational background constructing system routines, custom modules, and research evaluation templates.</p>
+                                </div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">C++</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Python</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Matlab</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">SQL</span>
+                                </div>
+                            </div>
+
+                            <!-- Skill Card 2: Technical Domains -->
+                            <!-- <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-mint-300 transition-all"> -->
+                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-mint-300 transition-all style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
+                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-microchip"></i></div>
+                                <div>
+                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">02 / Architecture</span>
+                                    <h4 class="text-stone-800 font-medium text-lg mb-4">Technical Fields</h4>
+                                    <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Familiar with performance testing under complex hardware architectures, dynamic profiling, and state assessment.</p>
+                                </div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Computer Architecture</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Robotics</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Machine Learning</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Software Eng.</span>
+                                </div>
+                            </div>
+
+                            <!-- Skill Card 3: Design & Tools -->
+                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-mint-300 transition-all">
+                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-compass-drafting"></i></div>
+                                <div>
+                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">03 / Production</span>
+                                    <h4 class="text-stone-800 font-medium text-lg mb-4">Design & Media</h4>
+                                    <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Skillful in visual representations, mockup styling, technical presentation styling, and drafting clean structural charts.</p>
+                                </div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Photoshop</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Adobe Illustrator</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Office Suite</span>
+                                </div>
+                            </div>
+
+                            <!-- Skill Card 4: Frameworks & Deployments -->
+                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-mint-300 transition-all">
+                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-cubes"></i></div>
+                                <div>
+                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">04 / Stack</span>
+                                    <h4 class="text-stone-800 font-medium text-lg mb-4">Frameworks & OS</h4>
+                                    <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Experienced using automated benchmarking environments and factor graph frameworks on local or distributed devices.</p>
+                                </div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Linux</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">GTSAM</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Unity</span>
+                                    <span class="text-[10px] bg-white/60 text-stone-700 px-2 py-1 rounded border border-stone-200">Git</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Sliding controls at the bottom of the screen -->
+                    <div class="flex justify-between items-center mt-3 text-stone-500">
+                        <span class="text-[10px] text-slate-500 font-mono">Status: Connected to CUHKSZ_Net</span>
+                        <div class="flex items-center gap-3">
+                            <button id="slide-left" class="hover:text-mint-400 transition-colors p-1"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                            <span class="text-[10px] font-mono tracking-widest text-slate-400"><span id="active-card-num">1</span>/4</span>
+                            <button id="slide-right" class="hover:text-mint-400 transition-colors p-1"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MacBook bottom keyboard block -->
+                <div class="macbook-body w-[105%] h-5 relative flex flex-col justify-start items-center">
+                    <div class="w-16 h-1 bg-slate-700/40 rounded-full mt-1"></div>
+                    <!-- Display Lip opening latch -->
+                    <div class="absolute -top-[1px] w-14 h-[5px] bg-[#1e293b] rounded-b-md"></div>
+                </div>
+            </div>
+
+            <!-- Hint indicators for trackpad/scroll behavior -->
+            <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-6 font-light">
+                <i class="fa-solid fa-circle-info mr-1 text-mint-500"></i> Hover and Scroll / drag horizontally across the cards
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= PAGE 4: EXPERIENCE ================= -->
+    <section id="experience" class="relative min-h-screen w-full flex flex-col justify-center bg-white px-6 md:px-24 py-24 overflow-hidden">
+        <!-- Left top small title -->
+        <div class="absolute top-12 left-6 md:left-24">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-stone-400 font-light">Experience</h2>
+        </div>
+
+        <div class="max-w-5xl mx-auto w-full relative z-10 flex flex-col items-center">
+            
+            <!-- Apple-inspired tab switcher -->
+            <div class="glass p-1 rounded-full flex gap-1 mb-12 max-w-md w-full relative shadow-sm">
+                <!-- Highlight Indicator bar backing -->
+                <div id="tab-active-indicator" class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-white rounded-full shadow-sm transition-all duration-300"></div>
+                
+                <button onclick="switchTab('internship')" id="btn-tab-internship" class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-widest font-light text-stone-800 focus:outline-none transition-colors duration-200">
+                    Internship
+                </button>
+                <button onclick="switchTab('project_exp')" id="btn-tab-project_exp" class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-widest font-light text-stone-400 focus:outline-none transition-colors duration-200">
+                    Academic Research
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="w-full relative min-h-[420px]">
+                
+                <!-- ================= TAB CONTENT: INTERNSHIPS ================= -->
+                <div id="content-internship" class="space-y-12 transition-all duration-300">
+                    
+                    <!-- Internship Item 1: ARM China -->
+                    <div class="relative pl-8 border-l border-stone-150 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
+                            <div>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Shanghai</span>
+                                <h3 class="text-lg font-medium text-stone-800 mt-0.5">ARM China (Anmou Technology)</h3>
+                                <p class="text-xs text-stone-500">Automation Performance Intern</p>
+                            </div>
+                            <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">2026.1 – 2026.4</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Responsible for benchmark automation testing and performance evaluation, executing large-scale benchmark experiments under various kernel configurations and system environments.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Analyzed system behaviors including CPU scheduling, memory management, and I/O, identified root causes of benchmark output discrepancies across different kernel versions, generated analysis reports.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Explored performance correlations between software systems and hardware architectures, participating in Linux system performance analysis and automated profiling tool development.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Internship Item 2: Hefei National Science Center -->
+                    <div class="relative pl-8 border-l border-stone-150 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
+                            <div>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Hefei, Anhui</span>
+                                <h3 class="text-lg font-medium text-stone-800 mt-0.5">Hefei Comprehensive National Science Center</h3>
+                                <p class="text-xs text-stone-500">Algorithm Intern</p>
+                            </div>
+                            <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">Jun 2024 – Sep 2024</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Developed computer vision models for image quality assessment and NSFW classification, designing a self-distillation joint weighted loss to boost accuracy to <span class="font-medium text-stone-800">93.55%</span>.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Co-authored a patent and paper on fine-grained NSFW classification using softened-Softmax for inter-class knowledge transfer, and another patent on blockchain-based dynamic attribute access control with efficient update algorithms.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- ================= TAB CONTENT: ACADEMIC RESEARCH ================= -->
+                <div id="content-project_exp" class="hidden space-y-12 transition-all duration-300">
+                    
+                    <!-- Research Project 1: Multi-Robot Localization -->
+                    <div class="relative pl-8 border-l border-stone-150 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
+                            <div>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">C++ / Python / GTSAM</span>
+                                <h3 class="text-lg font-medium text-stone-800 mt-0.5">Distributed Multi-Robot Localization Based on Factor Graph Fusion</h3>
+                            </div>
+                            <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">May 2025 – Present</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Built a centralized factor-graph backend using GTSAM, integrating IMU pre-integration and inter-robot acoustic ranging for global consistent pose optimization.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Designed IMU, Range, and bias-continuity factors, employing the ISAM2 incremental optimizer for real-time efficiency and drift suppression.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Developed navigation systems; reduced end-to-end task completion time by <span class="font-medium text-stone-800">40%</span> using robust audio localization metrics.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Research Project 2: Tower Defense Game -->
+                    <div class="relative pl-8 border-l border-stone-150 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
+                            <div>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">C++ / Unity / OpenAI API</span>
+                                <h3 class="text-lg font-medium text-stone-800 mt-0.5">Tower Defense Battle Game Development</h3>
+                            </div>
+                            <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">Oct 2024 – Dec 2024</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Designed campus-themed game loop implementing enemy path planning, custom object pooling, currency, and upgrades.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Integrated GPT APIs to instantly parse natural-language descriptions into active compilable parameters for personalized tower traits.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Research Project 3: Urban Traffic Forecasting -->
+                    <div class="relative pl-8 border-l border-stone-150 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
+                            <div>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Python / Matlab / STSGCN</span>
+                                <h3 class="text-lg font-medium text-stone-800 mt-0.5">Urban Traffic Flow Forecasting Model</h3>
+                            </div>
+                            <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">Jan 2025 – May 2025</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Led spatial-temporal network designs utilizing STSGCN for spatiotemporal modeling, yielding <span class="font-medium text-stone-800">92.5%</span> estimation accuracy on intersections.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span>Built continuous preprocessing pipeline across 100+ stations over 28 continuous days.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= PAGE 5: PROJECT ================= -->
+    <section id="project" class="relative min-h-screen w-full flex flex-col justify-center bg-[#fcfcfc] px-6 md:px-24 py-24 overflow-hidden">
+        <!-- Left top small title -->
+        <div class="absolute top-12 left-6 md:left-24">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-stone-400 font-light">Project Documents</h2>
+        </div>
+
+        <div class="max-w-5xl mx-auto w-full relative z-10 flex flex-col items-center">
+            <div class="text-center max-w-xl mb-16">
+                <span class="text-xs uppercase tracking-widest text-mint-600 font-medium">Presentations & Slides</span>
+                <h3 class="text-2xl font-light text-stone-800 mt-2">Interactive Showcase Files</h3>
+                <p class="text-xs text-stone-400 mt-2 font-light">
+                    Click the minimalist folders to jump to corresponding online document slide links instantly.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 w-full justify-items-center">
+                
+                <!-- Folder 1 Container -->
+                <div class="folder-container w-full max-w-sm">
+                    <a href="https://ocnhaw22fqp2.feishu.cn/slides/LIIBs78IYlljofdF1YzcL0mDnLb" target="_blank" class="block">
+                        <div class="folder w-full h-56 relative cursor-pointer">
+                            <!-- Back of the folder -->
+                            <div class="folder-back absolute inset-0 rounded-xl flex items-end p-6 border border-stone-300 shadow-md">
+                                <div class="w-full h-[1px] bg-stone-300/40"></div>
+                            </div>
+                            <!-- Folder Tab/Flap -->
+                            <div class="absolute top-0 left-6 -translate-y-2.5 w-24 h-4 bg-stone-200 rounded-t-lg border-t border-x border-stone-300"></div>
+                            <!-- Front Sheet (Slide representation) -->
+                            <div class="folder-front absolute inset-x-2 bottom-2 top-4 rounded-lg flex flex-col justify-between p-5 bg-white shadow-lg">
+                                <div class="flex justify-between items-start">
+                                    <div class="p-2 rounded-lg bg-mint-50 border border-mint-200/50 text-mint-600 text-xs">
+                                        <i class="fa-regular fa-file-powerpoint text-lg"></i>
+                                    </div>
+                                    <span class="text-[9px] font-mono tracking-widest text-stone-400 font-light uppercase">Feishu Slides #01</span>
+                                </div>
+                                <div class="mt-4">
+                                    <h4 class="text-stone-800 font-medium text-sm md:text-base leading-snug">Song Xinyan's Academic & Engineering Slide Showcase</h4>
+                                    <div class="flex items-center gap-1 mt-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-mint-400 animate-pulse"></span>
+                                        <p class="text-[10px] text-mint-600 tracking-wider uppercase font-medium">Click to Launch Slide</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Folder 2 Container -->
+                <div class="folder-container w-full max-w-sm">
+                    <a href="https://ocnhaw22fqp2.feishu.cn/slides/LIIBs78IYlljofdF1YzcL0mDnLb" target="_blank" class="block">
+                        <div class="folder w-full h-56 relative cursor-pointer">
+                            <!-- Back of the folder -->
+                            <div class="folder-back absolute inset-0 rounded-xl flex items-end p-6 border border-stone-300 shadow-md">
+                                <div class="w-full h-[1px] bg-stone-300/40"></div>
+                            </div>
+                            <!-- Folder Tab/Flap -->
+                            <div class="absolute top-0 left-6 -translate-y-2.5 w-24 h-4 bg-stone-200 rounded-t-lg border-t border-x border-stone-300"></div>
+                            <!-- Front Sheet -->
+                            <div class="folder-front absolute inset-x-2 bottom-2 top-4 rounded-lg flex flex-col justify-between p-5 bg-white shadow-lg">
+                                <div class="flex justify-between items-start">
+                                    <div class="p-2 rounded-lg bg-mint-50 border border-mint-200/50 text-mint-600 text-xs">
+                                        <i class="fa-regular fa-file-powerpoint text-lg"></i>
+                                    </div>
+                                    <span class="text-[9px] font-mono tracking-widest text-stone-400 font-light uppercase">Feishu Slides #02</span>
+                                </div>
+                                <div class="mt-4">
+                                    <h4 class="text-stone-800 font-medium text-sm md:text-base leading-snug">Portfolio Documents & Project Reports Overview</h4>
+                                    <div class="flex items-center gap-1 mt-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-mint-400 animate-pulse"></span>
+                                        <p class="text-[10px] text-mint-600 tracking-wider uppercase font-medium">Click to Launch Slide</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PAGE 6: CONTACT ME ================= -->
+    <section id="contact" class="relative min-h-screen w-full flex flex-col justify-center bg-white px-6 md:px-24 py-24 overflow-hidden">
+        <!-- Left top small title -->
+        <div class="absolute top-12 left-6 md:left-24">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-stone-400 font-light">Contact Me</h2>
+        </div>
+
+        <div class="max-w-4xl mx-auto w-full relative z-10 flex flex-col items-center">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-mint-600 font-medium">Get in Touch</span>
+                <h3 class="text-3xl font-light text-stone-800 mt-2">Let's Connect</h3>
+                <p class="text-xs text-stone-400 mt-2 font-light max-w-md">
+                    Click any element below to instantly copy details to your clipboard.
+                </p>
+            </div>
+
+            <!-- Copier Feedback Box (Floating alert indicator) -->
+            <div id="copy-toast" class="opacity-0 translate-y-2 pointer-events-none transition-all duration-300 mb-6 bg-mint-50 border border-mint-200 px-6 py-2.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-mint-600 text-xs"></i>
+                <span class="text-xs text-mint-800 tracking-wider font-light">Copied successfully, please contact me!~</span>
+            </div>
+
+            <!-- Interactivity Copy Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
+                
+                <!-- Email Copy Card -->
+                <div onclick="copyTextToClipboard('songxinyan2026@gmail.com')" class="glass hover:bg-mint-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-mint-300 hover:shadow-lg transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-mint-600 transition-colors">
+                        <i class="fa-regular fa-envelope text-lg"></i>
+                    </div>
+                    <span class="text-[10px] text-stone-400 uppercase tracking-widest font-light mt-4">Email Address</span>
+                    <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5 break-all">songxinyan@example.com</span>
+                    <span class="text-[9px] text-mint-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
+                </div>
+
+                <!-- Phone Copy Card -->
+                <div onclick="copyTextToClipboard('+86 17355102773')" class="glass hover:bg-mint-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-mint-300 hover:shadow-lg transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-mint-600 transition-colors">
+                        <i class="fa-solid fa-mobile-screen text-lg"></i>
+                    </div>
+                    <span class="text-[10px] text-stone-400 uppercase tracking-widest font-light mt-4">Phone Number</span>
+                    <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5">+86 188-xxxx-xxxx</span>
+                    <span class="text-[9px] text-mint-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
+                </div>
+
+                <!-- WeChat Copy Card -->
+                <div onclick="copyTextToClipboard('XY1412257239')" class="glass hover:bg-mint-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-mint-300 hover:shadow-lg transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-mint-600 transition-colors">
+                        <i class="fa-brands fa-weixin text-lg"></i>
+                    </div>
+                    <span class="text-[10px] text-stone-400 uppercase tracking-widest font-light mt-4">WeChat ID</span>
+                    <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5">xinyan_song</span>
+                    <span class="text-[9px] text-mint-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
+                </div>
+
+            </div>
+
+            <!-- Footer minimal info -->
+            <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 mt-24 font-light select-none">
+                © 2026 SONG XINYAN. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </section>
+
+    <!-- Vanilla Javascript Logic -->
+    <script>
+        // Set up custom cursor tracker
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            // Subtle spring/easing lag for the larger follower
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 30);
+        });
+
+        // Add Hover Effects to interactable items
+        const hoverables = document.querySelectorAll('a, button, [onclick], .folder, .cursor-pointer, input, textarea');
+        hoverables.forEach((item) => {
+            item.addEventListener('mouseenter', () => {
+                document.body.classList.add('cursor-hover');
+            });
+            item.addEventListener('mouseleave', () => {
+                document.body.classList.remove('cursor-hover');
+            });
+        });
+
+        // Sliding Skills Logic
+        const skillsTrack = document.getElementById('skills-track');
+        const activeCardNumEl = document.getElementById('active-card-num');
+        const slideLeftBtn = document.getElementById('slide-left');
+        const slideRightBtn = document.getElementById('slide-right');
+
+        if (skillsTrack) {
+            skillsTrack.addEventListener('scroll', () => {
+                const scrollLeft = skillsTrack.scrollLeft;
+                const cardWidth = skillsTrack.children[0].offsetWidth + 24; // Width + gap
+                const activeIndex = Math.round(scrollLeft / cardWidth);
+                activeCardNumEl.textContent = activeIndex + 1;
+            });
+
+            slideLeftBtn.addEventListener('click', () => {
+                const cardWidth = skillsTrack.children[0].offsetWidth + 24;
+                skillsTrack.scrollLeft -= cardWidth;
+            });
+
+            slideRightBtn.addEventListener('click', () => {
+                const cardWidth = skillsTrack.children[0].offsetWidth + 24;
+                skillsTrack.scrollLeft += cardWidth;
+            });
+        }
+
+        // Apple-style Experience Tabs Switches
+        function switchTab(tabName) {
+            const btnInternship = document.getElementById('btn-tab-internship');
+            const btnProjectExp = document.getElementById('btn-tab-project_exp');
+            const contentInternship = document.getElementById('content-internship');
+            const contentProjectExp = document.getElementById('content-project_exp');
+            const tabIndicator = document.getElementById('tab-active-indicator');
+
+            if (tabName === 'internship') {
+                // Change classes
+                btnInternship.classList.remove('text-stone-400');
+                btnInternship.classList.add('text-stone-800');
+                btnProjectExp.classList.remove('text-stone-800');
+                btnProjectExp.classList.add('text-stone-400');
+                
+                // Show/hide content
+                contentInternship.classList.remove('hidden');
+                contentProjectExp.classList.add('hidden');
+
+                // Shift absolute indicator background
+                tabIndicator.style.left = '4px';
+                tabIndicator.style.width = 'calc(50% - 4px)';
+            } else {
+                // Change classes
+                btnProjectExp.classList.remove('text-stone-400');
+                btnProjectExp.classList.add('text-stone-800');
+                btnInternship.classList.remove('text-stone-800');
+                btnInternship.classList.add('text-stone-400');
+
+                // Show/hide content
+                contentProjectExp.classList.remove('hidden');
+                contentInternship.classList.add('hidden');
+
+                // Shift absolute indicator background
+                tabIndicator.style.left = 'calc(50%)';
+                tabIndicator.style.width = 'calc(50% - 4px)';
+            }
+        }
+
+        // Secure Text Copy Clipboard Function (With Sandbox Fallback)
+        function copyTextToClipboard(text) {
+            // Reliable fallback using hidden element since secure context permissions vary in embed iframes
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = text;
+            tempTextArea.style.position = 'fixed'; // Avoid page scrolling
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            
+            try {
+                const success = document.execCommand('copy');
+                if (success) {
+                    showCopyToast();
+                } else {
+                    console.error('Copy execution command failed.');
+                }
+            } catch (err) {
+                console.error('Unable to copy', err);
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        // Show toast animation
+        function showCopyToast() {
+            const toast = document.getElementById('copy-toast');
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(8px)';
+            }, 2500);
+        }
+
+        // Side dot tracker indicator highlight active section
+        const sections = document.querySelectorAll('section');
+        const dotNavs = document.querySelectorAll('.dot-nav');
+
+        window.addEventListener('scroll', () => {
+            let currentSection = '';
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            dotNavs.forEach((dot) => {
+                dot.classList.remove('active-dot');
+                if (dot.getAttribute('data-section') === currentSection) {
+                    dot.classList.add('active-dot');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
