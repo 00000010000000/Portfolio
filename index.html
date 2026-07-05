@@ -22,14 +22,14 @@
                     },
                     colors: {
                         mint: {
-                            50: '#f0f7fc',
-                            100: '#e0eff8',
-                            200: '#c1dff2',
-                            300: '#bcd8ee',   
-                            400: '#8cbce0',
-                            500: '#5c9fd2',
-                            600: '#3d82b8',
-                            700: '#2d6691',
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
                         }
                     }
                 }
@@ -49,7 +49,7 @@
         .custom-cursor {
             width: 8px;
             height: 8px;
-            background-color: #bcd8ee; /* Mint green #34d399*/
+            background-color: #34d399; /* Mint green */
             border-radius: 50%;
             position: fixed;
             transform: translate(-50%, -50%);
@@ -73,13 +73,13 @@
         .cursor-hover .custom-cursor {
             width: 12px;
             height: 12px;
-            background-color: #3d82b8;  /* 深蓝色 */
+            background-color: #059669;
         }
         .cursor-hover .custom-cursor-follower {
             width: 48px;
             height: 48px;
-            border-color: rgba(61, 130, 184, 0.8);
-            background-color: rgba(188, 216, 238, 0.15);
+            border-color: rgba(5, 150, 105, 0.8);
+            background-color: rgba(167, 243, 208, 0.15);
         }
 
         /* Glassmorphism Classes */
@@ -158,13 +158,13 @@
 
         /* Page Dots Navigation active glow */
         .active-dot {
-            background-color: #bcd8ee !important;
+            background-color: #34d399 !important;
             transform: scale(1.3);
-            box-shadow: 0 0 8px #bcd8ee;
+            box-shadow: 0 0 8px #34d399;
         }
     </style>
 </head>
-<body class="font-sans antialiased text-stone-800 selection:bg-blue-200">
+<body class="font-sans antialiased text-stone-800 selection:bg-mint-200">
 
     <!-- Custom Pointer -->
     <div id="cursor" class="custom-cursor hidden md:block"></div>
@@ -182,52 +182,52 @@
 
     <!-- Side Dot Tracker Navigation -->
     <div class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden flex-col gap-4 md:flex">
-        <a href="#home" data-section="home" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-blue-300 transition-all duration-300"></a>
-        <a href="#about" data-section="about" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-blue-300 transition-all duration-300"></a>
-        <a href="#skills" data-section="skills" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-blue-300 transition-all duration-300"></a>
-        <a href="#experience" data-section="experience" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-blue-300 transition-all duration-300"></a>
-        <a href="#project" data-section="project" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-blue-300 transition-all duration-300"></a>
-        <a href="#contact" data-section="contact" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-blue-300 transition-all duration-300"></a>
+        <a href="#home" data-section="home" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#about" data-section="about" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#skills" data-section="skills" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#experience" data-section="experience" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#project" data-section="project" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#contact" data-section="contact" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
     </div>
 
     <!-- ================= PAGE 1: HERO SECTION ================= -->
     <section id="home" class="relative min-h-screen w-full flex flex-col justify-center items-center bg-[#fafaf9] overflow-hidden px-4">
         <!-- Background subtle mint ambient glow -->
-        <div class="absolute w-[600px] h-[600px] rounded-full bg-blue-100/30 blur-[130px] -top-20 -left-20 pointer-events-none"></div>
-        <div class="absolute w-[500px] h-[500px] rounded-full bg-blue-50/25 blur-[100px] -bottom-20 -right-20 pointer-events-none"></div>
-        
+        <div class="absolute w-[600px] h-[600px] rounded-full bg-mint-100/30 blur-[130px] -top-20 -left-20 pointer-events-none"></div>
+        <div class="absolute w-[500px] h-[500px] rounded-full bg-mint-50/25 blur-[100px] -bottom-20 -right-20 pointer-events-none"></div>
 
         <!-- Interactive Text Container -->
-        <div class="hero-container relative inline-flex flex-col items-center group py-12">
-            <!-- Center Name -->
-            <h1 class="text-5xl md:text-8xl font-extralight tracking-tight text-stone-800 transition-all duration-500 group-hover:text-blue-400 select-none pb-4 relative z-20 cursor-default">
+        <div class="hero-container relative flex flex-col items-center group py-12 px-24">
+            <!-- Center Name with Magnetic/Interactive Hover Design -->
+            <h1 class="text-5xl md:text-8xl font-extralight tracking-tight text-stone-800 transition-all duration-500 group-hover:text-mint-600 select-none pb-4 relative z-20 cursor-default">
                 Song Xinyan
             </h1>
             <p class="text-xs uppercase tracking-[0.2em] text-stone-400 mt-2 group-hover:opacity-0 transition-opacity duration-300 z-10 font-light">
                 Hover to explore
             </p>
-        
+
             <!-- Sophisticated Interactive Dropdown Drop-down Menu -->
-            <div class="hero-dropdown absolute top-full left-1/2 -translate-x-1/2 z-30 rounded-2xl glass p-3 shadow-xl mt-4" style="width: max-content; min-width: 200px;">
+            <div class="hero-dropdown absolute top-full left-1/2 -translate-x-1/2 z-30 w-72 rounded-2xl glass p-3 shadow-xl mt-4">
                 <div class="flex flex-col gap-1 text-center">
-                    <a href="#about" class="dropdown-item py-3 px-6 rounded-xl hover:bg-blue-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                    <a href="#about" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                         About Me
                     </a>
-                    <a href="#skills" class="dropdown-item py-3 px-6 rounded-xl hover:bg-blue-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                    <a href="#skills" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                         Skills
                     </a>
-                    <a href="#experience" class="dropdown-item py-3 px-6 rounded-xl hover:bg-blue-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                    <a href="#experience" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                         Experience
                     </a>
-                    <a href="#project" class="dropdown-item py-3 px-6 rounded-xl hover:bg-blue-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                    <a href="#project" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                         Project
                     </a>
-                    <a href="#contact" class="dropdown-item py-3 px-6 rounded-xl hover:bg-blue-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200 whitespace-nowrap">
+                    <a href="#contact" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                         Contact Me
                     </a>
                 </div>
             </div>
         </div>
+
         <!-- Interactive down indicator -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone-400">
             <span class="text-[10px] uppercase tracking-widest font-light">Scroll Down</span>
@@ -248,21 +248,24 @@
             <div class="lg:col-span-5 flex justify-center lg:justify-start w-full">
                 <div class="relative w-72 h-96 md:w-80 md:h-[450px] rounded-2xl overflow-hidden glass shadow-xl group border border-stone-200/50 p-3">
                     <div class="w-full h-full rounded-xl bg-[#ebebeb] overflow-hidden relative flex flex-col justify-end p-6">
-                        <div class="absolute inset-0 flex items-center justify-center opacity-100 group-hover:scale-105 transition-transform duration-700">
-                            <img 
-                                src="./photo/plot-songxinyan.jpg" 
-                                alt="Song Xinyan"
-                                class="w-full h-full object-cover"
-                            />
+                        <!-- Premium abstract graduate design SVG vector styling -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                            <svg class="w-full h-full text-stone-300" viewBox="0 0 200 200" fill="currentColor">
+                                <circle cx="100" cy="80" r="32" class="fill-stone-400/50" />
+                                <path d="M50,160 C50,125 70,115 100,115 C130,115 150,125 150,160 Z" class="fill-stone-400/50" />
+                                <path d="M100,32 L60,52 L100,72 L140,52 Z" class="fill-stone-500/70" />
+                                <line x1="140" y1="52" x2="140" y2="85" stroke="currentColor" stroke-width="4" stroke-linecap="round" class="text-stone-500" />
+                                <circle cx="140" cy="87" r="4" class="fill-stone-600" />
+                            </svg>
                         </div>
                         
                         <!-- Premium deep gray filter background mesh overlay -->
                         <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-stone-800/20 to-transparent mix-blend-multiply"></div>
                         
                         <div class="relative z-10">
-                            <span class="text-xs tracking-widest text-blue-300 uppercase font-light">Song Xinyan</span>
+                            <span class="text-xs tracking-widest text-mint-300 uppercase font-light">Song Xinyan</span>
                             <h3 class="text-lg text-white font-light tracking-wide mt-1">Computer Science Student</h3>
-                            <p class="text-[11px] text-stone-300 font-light mt-1">CUHKSZ CS Alumna • 2026</p>
+                            <p class="text-[11px] text-stone-300 font-light mt-1">CUHKSZ DS Alumna • 2026</p>
                             <p class="text-[11px] text-stone-300 font-light mt-0.5">Columbia University, School of Engineering — M.S. in AI (Robotics Perception) • 2026 Fall</p>
                         </div>
                     </div>
@@ -274,7 +277,7 @@
                 
                 <!-- Section: Profile -->
                 <div class="border-b border-stone-100 pb-6">
-                    <h3 class="text-xs uppercase tracking-widest text-blue-400 font-medium mb-2">Profile</h3>
+                    <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-2">Profile</h3>
                     <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base">
                         A persistent, tech-driven researcher and engineer with solid technical foundations in Computer Science. Specialized in automated testing pipelines, machine learning algorithms, computer vision pipelines, and multi-robot autonomous navigation workflows.
                     </p>
@@ -282,7 +285,7 @@
 
                 <!-- Section: Education -->
                 <div class="border-b border-stone-100 pb-6">
-                    <h3 class="text-xs uppercase tracking-widest text-blue-400 font-medium mb-3">Education</h3>
+                    <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-3">Education</h3>
                     <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-2">
                         <div>
                             <h4 class="text-sm md:text-base font-normal text-stone-800">The Chinese University of Hong Kong, Shenzhen</h4>
@@ -309,10 +312,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Academic Honors -->
                     <div class="glass-dark p-5 rounded-2xl border border-stone-100">
-                        <h3 class="text-xs uppercase tracking-widest text-blue-400 font-medium mb-3">Academic Honors</h3>
+                        <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-3">Academic Honors</h3>
                         <ul class="space-y-2">
                             <li class="flex items-start gap-2 text-xs md:text-sm text-stone-600 font-light">
-                                <span class="text-blue-400 mt-1"><i class="fa-solid fa-award"></i></span>
+                                <span class="text-mint-500 mt-1"><i class="fa-solid fa-award"></i></span>
                                 <div>
                                     <span class="font-normal text-stone-800">Dean’s Honor List</span>
                                     <p class="text-[10px] text-stone-400 mt-0.5">CUHK-Shenzhen</p>
@@ -323,7 +326,7 @@
 
                     <!-- Languages -->
                     <div class="glass-dark p-5 rounded-2xl border border-stone-100">
-                        <h3 class="text-xs uppercase tracking-widest text-blue-400 font-medium mb-3">Languages</h3>
+                        <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-3">Languages</h3>
                         <div class="space-y-3">
                             <div>
                                 <div class="flex justify-between text-xs mb-1">
@@ -331,7 +334,7 @@
                                     <span class="text-stone-400 font-light">Native</span>
                                 </div>
                                 <div class="w-full bg-stone-200 h-[3px] rounded-full overflow-hidden">
-                                    <div class="bg-blue-300 h-full w-full"></div>
+                                    <div class="bg-mint-400 h-full w-full"></div>
                                 </div>
                             </div>
                             <div>
@@ -340,7 +343,7 @@
                                     <span class="text-stone-400 font-light">TOEFL 107 (Fluent)</span>
                                 </div>
                                 <div class="w-full bg-stone-200 h-[3px] rounded-full overflow-hidden">
-                                    <div class="bg-blue-300 h-full w-[90%]"></div>
+                                    <div class="bg-mint-400 h-full w-[90%]"></div>
                                 </div>
                             </div>
                         </div>
@@ -389,9 +392,9 @@
                             
                             <!-- Skill Card 1: Languages & Logic -->
                             <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-blue-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
-                                <div class="absolute top-4 right-4 text-blue-400 opacity-60"><i class="fa-solid fa-code"></i></div>
+                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-code"></i></div>
                                 <div>
-                                    <span class="text-[10px] text-blue-400 uppercase tracking-widest font-semibold block mb-1">01 / Languages</span>
+                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">01 / Languages</span>
                                     <h4 class="text-stone-800 font-medium text-lg mb-4">Core Programming</h4>
                                     <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Strong foundational background constructing system routines, custom modules, and research evaluation templates.</p>
                                 </div>
@@ -405,9 +408,9 @@
 
                             <!-- Skill Card 2: Technical Domains -->
                             <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-blue-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
-                                <div class="absolute top-4 right-4 text-blue-400 opacity-60"><i class="fa-solid fa-microchip"></i></div>
+                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-microchip"></i></div>
                                 <div>
-                                    <span class="text-[10px] text-blue-400 uppercase tracking-widest font-semibold block mb-1">02 / Architecture</span>
+                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">02 / Architecture</span>
                                     <h4 class="text-stone-800 font-medium text-lg mb-4">Technical Fields</h4>
                                     <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Familiar with performance testing under complex hardware architectures, dynamic profiling, and state assessment.</p>
                                 </div>
@@ -421,9 +424,9 @@
 
                             <!-- Skill Card 3: Design & Tools -->
                             <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-blue-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
-                                <div class="absolute top-4 right-4 text-blue-400 opacity-60"><i class="fa-solid fa-compass-drafting"></i></div>
+                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-compass-drafting"></i></div>
                                 <div>
-                                    <span class="text-[10px] text-blue-400 uppercase tracking-widest font-semibold block mb-1">03 / Production</span>
+                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">03 / Production</span>
                                     <h4 class="text-stone-800 font-medium text-lg mb-4">Design & Media</h4>
                                     <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Skillful in visual representations, mockup styling, technical presentation styling, and drafting clean structural charts.</p>
                                 </div>
@@ -436,9 +439,9 @@
 
                             <!-- Skill Card 4: Frameworks & Deployments -->
                             <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-blue-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
-                                <div class="absolute top-4 right-4 text-blue-400 opacity-60"><i class="fa-solid fa-cubes"></i></div>
+                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-cubes"></i></div>
                                 <div>
-                                    <span class="text-[10px] text-blue-400 uppercase tracking-widest font-semibold block mb-1">04 / Stack</span>
+                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">04 / Stack</span>
                                     <h4 class="text-stone-800 font-medium text-lg mb-4">Frameworks & OS</h4>
                                     <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Experienced using automated benchmarking environments and factor graph frameworks on local or distributed devices.</p>
                                 </div>
@@ -457,9 +460,9 @@
                     <div class="flex justify-between items-center mt-3 text-stone-500">
                         <span class="text-[10px] text-slate-500 font-mono">Status: Connected to CUHKSZ_Net</span>
                         <div class="flex items-center gap-3">
-                            <button id="slide-left" class="hover:text-blue-300 transition-colors p-1"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                            <button id="slide-left" class="hover:text-mint-400 transition-colors p-1"><i class="fa-solid fa-chevron-left text-xs"></i></button>
                             <span class="text-[10px] font-mono tracking-widest text-slate-400"><span id="active-card-num">1</span>/4</span>
-                            <button id="slide-right" class="hover:text-blue-300 transition-colors p-1"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+                            <button id="slide-right" class="hover:text-mint-400 transition-colors p-1"><i class="fa-solid fa-chevron-right text-xs"></i></button>
                         </div>
                     </div>
                 </div>
@@ -474,7 +477,7 @@
 
             <!-- Hint indicators for trackpad/scroll behavior -->
             <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-6 font-light">
-                <i class="fa-solid fa-circle-info mr-1 text-blue-400"></i> Hover and Scroll / drag horizontally across the cards
+                <i class="fa-solid fa-circle-info mr-1 text-mint-500"></i> Hover and Scroll / drag horizontally across the cards
             </p>
         </div>
     </section>
@@ -510,11 +513,11 @@
                     <!-- Internship Item 1: ARM China -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-blue-300 bg-white group-hover:bg-blue-300 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-blue-400 font-semibold uppercase block">Shanghai</span>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Shanghai</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">ARM China (Anmou Technology)</h3>
                                 <p class="text-xs text-stone-500">Automation Performance Intern</p>
                             </div>
@@ -522,15 +525,15 @@
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Responsible for benchmark automation testing and performance evaluation, executing large-scale benchmark experiments under various kernel configurations and system environments.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Analyzed system behaviors including CPU scheduling, memory management, and I/O, identified root causes of benchmark output discrepancies across different kernel versions, generated analysis reports.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Explored performance correlations between software systems and hardware architectures, participating in Linux system performance analysis and automated profiling tool development.</span>
                             </li>
                         </ul>
@@ -539,11 +542,11 @@
                     <!-- Internship Item 2: Hefei National Science Center -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-blue-300 bg-white group-hover:bg-blue-300 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-blue-400 font-semibold uppercase block">Hefei, Anhui</span>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Hefei, Anhui</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">Hefei Comprehensive National Science Center</h3>
                                 <p class="text-xs text-stone-500">Algorithm Intern</p>
                             </div>
@@ -551,11 +554,11 @@
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Developed computer vision models for image quality assessment and NSFW classification, designing a self-distillation joint weighted loss to boost accuracy to <span class="font-medium text-stone-800">93.55%</span>.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Co-authored a patent and paper on fine-grained NSFW classification using softened-Softmax for inter-class knowledge transfer, and another patent on blockchain-based dynamic attribute access control with efficient update algorithms.</span>
                             </li>
                         </ul>
@@ -569,26 +572,26 @@
                     <!-- Research Project 1: Multi-Robot Localization -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-blue-300 bg-white group-hover:bg-blue-300 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-blue-400 font-semibold uppercase block">C++ / Python / GTSAM</span>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">C++ / Python / GTSAM</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">Distributed Multi-Robot Localization Based on Factor Graph Fusion</h3>
                             </div>
                             <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">May 2025 – Present</span>
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Built a centralized factor-graph backend using GTSAM, integrating IMU pre-integration and inter-robot acoustic ranging for global consistent pose optimization.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Designed IMU, Range, and bias-continuity factors, employing the ISAM2 incremental optimizer for real-time efficiency and drift suppression.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Developed navigation systems; reduced end-to-end task completion time by <span class="font-medium text-stone-800">40%</span> using robust audio localization metrics.</span>
                             </li>
                         </ul>
@@ -597,22 +600,22 @@
                     <!-- Research Project 2: Tower Defense Game -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-blue-300 bg-white group-hover:bg-blue-300 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-blue-400 font-semibold uppercase block">C++ / Unity / OpenAI API</span>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">C++ / Unity / OpenAI API</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">Tower Defense Battle Game Development</h3>
                             </div>
                             <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">Oct 2024 – Dec 2024</span>
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Designed campus-themed game loop implementing enemy path planning, custom object pooling, currency, and upgrades.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Integrated GPT APIs to instantly parse natural-language descriptions into active compilable parameters for personalized tower traits.</span>
                             </li>
                         </ul>
@@ -621,22 +624,22 @@
                     <!-- Research Project 3: Urban Traffic Forecasting -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-blue-300 bg-white group-hover:bg-blue-300 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-blue-400 font-semibold uppercase block">Python / Matlab / STSGCN</span>
+                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Python / Matlab / STSGCN</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">Urban Traffic Flow Forecasting Model</h3>
                             </div>
                             <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">Jan 2025 – May 2025</span>
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Led spatial-temporal network designs utilizing STSGCN for spatiotemporal modeling, yielding <span class="font-medium text-stone-800">92.5%</span> estimation accuracy on intersections.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-blue-300 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Built continuous preprocessing pipeline across 100+ stations over 28 continuous days.</span>
                             </li>
                         </ul>
@@ -658,7 +661,7 @@
 
         <div class="max-w-5xl mx-auto w-full relative z-10 flex flex-col items-center">
             <div class="text-center max-w-xl mb-16">
-                <span class="text-xs uppercase tracking-widest text-blue-400 font-medium">Presentations & Slides</span>
+                <span class="text-xs uppercase tracking-widest text-mint-600 font-medium">Presentations & Slides</span>
                 <h3 class="text-2xl font-light text-stone-800 mt-2">Interactive Showcase Files</h3>
                 <p class="text-xs text-stone-400 mt-2 font-light">
                     Click the minimalist folders to jump to corresponding online document slide links instantly.
@@ -680,7 +683,7 @@
                             <!-- Front Sheet (Slide representation) -->
                             <div class="folder-front absolute inset-x-2 bottom-2 top-4 rounded-lg flex flex-col justify-between p-5 bg-white shadow-lg">
                                 <div class="flex justify-between items-start">
-                                    <div class="p-2 rounded-lg bg-blue-50 border border-blue-200/50 text-blue-400 text-xs">
+                                    <div class="p-2 rounded-lg bg-mint-50 border border-mint-200/50 text-mint-600 text-xs">
                                         <i class="fa-regular fa-file-powerpoint text-lg"></i>
                                     </div>
                                     <span class="text-[9px] font-mono tracking-widest text-stone-400 font-light uppercase">Feishu Slides #01</span>
@@ -688,8 +691,8 @@
                                 <div class="mt-4">
                                     <h4 class="text-stone-800 font-medium text-sm md:text-base leading-snug">Song Xinyan's Academic & Engineering Slide Showcase</h4>
                                     <div class="flex items-center gap-1 mt-3">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-300 animate-pulse"></span>
-                                        <p class="text-[10px] text-blue-400 tracking-wider uppercase font-medium">Click to Launch Slide</p>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-mint-400 animate-pulse"></span>
+                                        <p class="text-[10px] text-mint-600 tracking-wider uppercase font-medium">Click to Launch Slide</p>
                                     </div>
                                 </div>
                             </div>
@@ -710,7 +713,7 @@
                             <!-- Front Sheet -->
                             <div class="folder-front absolute inset-x-2 bottom-2 top-4 rounded-lg flex flex-col justify-between p-5 bg-white shadow-lg">
                                 <div class="flex justify-between items-start">
-                                    <div class="p-2 rounded-lg bg-blue-50 border border-blue-200/50 text-blue-400 text-xs">
+                                    <div class="p-2 rounded-lg bg-mint-50 border border-mint-200/50 text-mint-600 text-xs">
                                         <i class="fa-regular fa-file-powerpoint text-lg"></i>
                                     </div>
                                     <span class="text-[9px] font-mono tracking-widest text-stone-400 font-light uppercase">Feishu Slides #02</span>
@@ -718,8 +721,8 @@
                                 <div class="mt-4">
                                     <h4 class="text-stone-800 font-medium text-sm md:text-base leading-snug">Portfolio Documents & Project Reports Overview</h4>
                                     <div class="flex items-center gap-1 mt-3">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-300 animate-pulse"></span>
-                                        <p class="text-[10px] text-blue-400 tracking-wider uppercase font-medium">Click to Launch Slide</p>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-mint-400 animate-pulse"></span>
+                                        <p class="text-[10px] text-mint-600 tracking-wider uppercase font-medium">Click to Launch Slide</p>
                                     </div>
                                 </div>
                             </div>
@@ -740,7 +743,7 @@
 
         <div class="max-w-4xl mx-auto w-full relative z-10 flex flex-col items-center">
             <div class="text-center mb-16">
-                <span class="text-xs uppercase tracking-widest text-blue-400 font-medium">Get in Touch</span>
+                <span class="text-xs uppercase tracking-widest text-mint-600 font-medium">Get in Touch</span>
                 <h3 class="text-3xl font-light text-stone-800 mt-2">Let's Connect</h3>
                 <p class="text-xs text-stone-400 mt-2 font-light max-w-md">
                     Click any element below to instantly copy details to your clipboard.
@@ -748,42 +751,42 @@
             </div>
 
             <!-- Copier Feedback Box (Floating alert indicator) -->
-            <div id="copy-toast" class="opacity-0 translate-y-2 pointer-events-none transition-all duration-300 mb-6 bg-blue-50 border border-blue-200 px-6 py-2.5 rounded-full flex items-center gap-2">
-                <i class="fa-solid fa-circle-check text-blue-400 text-xs"></i>
-                <span class="text-xs text-blue-700 tracking-wider font-light">Copied successfully, please contact me!~</span>
+            <div id="copy-toast" class="opacity-0 translate-y-2 pointer-events-none transition-all duration-300 mb-6 bg-mint-50 border border-mint-200 px-6 py-2.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-mint-600 text-xs"></i>
+                <span class="text-xs text-mint-800 tracking-wider font-light">Copied successfully, please contact me!~</span>
             </div>
 
             <!-- Interactivity Copy Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
                 
                 <!-- Email Copy Card -->
-                <div onclick="copyTextToClipboard('songxinyan2026@gmail.com')" class="glass hover:bg-blue-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-blue-300 hover:shadow-lg transition-all duration-300 relative group">
-                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-blue-400 transition-colors">
+                <div onclick="copyTextToClipboard('songxinyan@example.com')" class="glass hover:bg-mint-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-mint-300 hover:shadow-lg transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-mint-600 transition-colors">
                         <i class="fa-regular fa-envelope text-lg"></i>
                     </div>
                     <span class="text-[10px] text-stone-400 uppercase tracking-widest font-light mt-4">Email Address</span>
-                    <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5 break-all">songxinyan2026@gmail.com</span>
-                    <span class="text-[9px] text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
+                    <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5 break-all">songxinyan@example.com</span>
+                    <span class="text-[9px] text-mint-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
                 </div>
 
                 <!-- Phone Copy Card -->
-                <div onclick="copyTextToClipboard('+86 17355102773')" class="glass hover:bg-blue-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-blue-300 hover:shadow-lg transition-all duration-300 relative group">
-                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-blue-400 transition-colors">
+                <div onclick="copyTextToClipboard('+86 17355102773')" class="glass hover:bg-mint-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-mint-300 hover:shadow-lg transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-mint-600 transition-colors">
                         <i class="fa-solid fa-mobile-screen text-lg"></i>
                     </div>
                     <span class="text-[10px] text-stone-400 uppercase tracking-widest font-light mt-4">Phone Number</span>
-                    <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5">+86 17355102773</span>
-                    <span class="text-[9px] text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
+                    <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5">+86 173-5510-2773</span>
+                    <span class="text-[9px] text-mint-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
                 </div>
 
                 <!-- WeChat Copy Card -->
-                <div onclick="copyTextToClipboard('XY1412257239')" class="glass hover:bg-blue-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-blue-300 hover:shadow-lg transition-all duration-300 relative group">
-                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-blue-400 transition-colors">
+                <div onclick="copyTextToClipboard('XY1412257239')" class="glass hover:bg-mint-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-mint-300 hover:shadow-lg transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-mint-600 transition-colors">
                         <i class="fa-brands fa-weixin text-lg"></i>
                     </div>
                     <span class="text-[10px] text-stone-400 uppercase tracking-widest font-light mt-4">WeChat ID</span>
                     <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5">XY1412257239</span>
-                    <span class="text-[9px] text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
+                    <span class="text-[9px] text-mint-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
                 </div>
 
             </div>
