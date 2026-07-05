@@ -197,7 +197,6 @@
         <div class="absolute w-[500px] h-[500px] rounded-full bg-mint-50/25 blur-[100px] -bottom-20 -right-20 pointer-events-none"></div>
 
         <!-- Interactive Text Container -->
-        <!-- <div class="hero-container relative flex flex-col items-center group py-12 px-24"> -->
         <div class="hero-container relative inline-flex flex-col items-center group py-12">
             <!-- Center Name with Magnetic/Interactive Hover Design -->
             <h1 class="text-5xl md:text-8xl font-extralight tracking-tight text-stone-800 transition-all duration-500 group-hover:text-mint-600 select-none pb-4 relative z-20 cursor-default">
@@ -209,7 +208,6 @@
 
             <!-- Sophisticated Interactive Dropdown Drop-down Menu -->
             <div class="hero-dropdown absolute top-full left-1/2 -translate-x-1/2 z-30 rounded-2xl glass p-3 shadow-xl mt-4" style="width: max-content; min-width: 200px;">
-            <!-- <div class="hero-dropdown absolute top-full left-1/2 -translate-x-1/2 z-30 w-72 rounded-2xl glass p-3 shadow-xl mt-4"> -->
                 <div class="flex flex-col gap-1 text-center">
                     <a href="#about" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                         About Me
@@ -245,29 +243,26 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-7xl mx-auto w-full relative z-10">
-            
+
             <!-- Left Side: Profile Photo / Graphic Frame -->
             <div class="lg:col-span-5 flex justify-center lg:justify-start w-full">
                 <div class="relative w-72 h-96 md:w-80 md:h-[450px] rounded-2xl overflow-hidden glass shadow-xl group border border-stone-200/50 p-3">
                     <div class="w-full h-full rounded-xl bg-[#ebebeb] overflow-hidden relative flex flex-col justify-end p-6">
-                        <!-- Premium abstract graduate design SVG vector styling -->
-                        <div class="absolute inset-0 flex items-center justify-center opacity-70 group-hover:scale-105 transition-transform duration-700">
-                            <svg class="w-full h-full text-stone-300" viewBox="0 0 200 200" fill="currentColor">
-                                <circle cx="100" cy="80" r="32" class="fill-stone-400/50" />
-                                <path d="M50,160 C50,125 70,115 100,115 C130,115 150,125 150,160 Z" class="fill-stone-400/50" />
-                                <path d="M100,32 L60,52 L100,72 L140,52 Z" class="fill-stone-500/70" />
-                                <line x1="140" y1="52" x2="140" y2="85" stroke="currentColor" stroke-width="4" stroke-linecap="round" class="text-stone-500" />
-                                <circle cx="140" cy="87" r="4" class="fill-stone-600" />
-                            </svg>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-100 group-hover:scale-105 transition-transform duration-700">
+                            <img 
+                                src="./photo/plot-songxinyan.jpg" 
+                                alt="Song Xinyan"
+                                class="w-full h-full object-cover"
+                            />
                         </div>
                         
                         <!-- Premium deep gray filter background mesh overlay -->
                         <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-stone-800/20 to-transparent mix-blend-multiply"></div>
                         
                         <div class="relative z-10">
-                            <span class="text-xs tracking-widest text-mint-300 uppercase font-light">Song Xinyan</span>
+                            <span class="text-xs tracking-widest text-blue-300 uppercase font-light">Song Xinyan</span>
                             <h3 class="text-lg text-white font-light tracking-wide mt-1">Computer Science Student</h3>
-                            <p class="text-[11px] text-stone-300 font-light mt-1">CUHKSZ DS Alumna • 2026</p>
+                            <p class="text-[11px] text-stone-300 font-light mt-1">CUHKSZ CS Alumna • 2026</p>
                             <p class="text-[11px] text-stone-300 font-light mt-0.5">Columbia University, School of Engineering — M.S. in AI (Robotics Perception) • 2026 Fall</p>
                         </div>
                     </div>
