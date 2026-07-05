@@ -108,15 +108,21 @@
         /* Hero Text Interaction and Menu Dropdown */
         .hero-dropdown {
             opacity: 0;
+            visibility:hidden;
+            pointer-events:none;
             pointer-events: none;
+            
             transform: translate(-50%, -10px);
-            transition: all .4s ease;
+            transition: all .35s ease;
         }
     
-        .group:hover .hero-dropdown {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translate(-50%, 0);
+        .group:hover .hero-dropdown,
+        .hero-dropdown:hover{
+            opacity:1;
+            visibility:visible;
+            pointer-events:auto;
+        
+            transform:translate(-50%,0);
         }
         
         /* Folder Lifting Effects */
@@ -201,7 +207,7 @@
         <div class="hero-container flex flex-col items-center">
         <!-- <div class="hero-container relative inline-flex flex-col items-center group py-12"> -->
             <!-- Title -->
-            <div class="relative inline-block group pb-56">
+            <div class="relative inline-block group">
                 
                 <!-- Center Name with Magnetic/Interactive Hover Design -->
                 <h1 class="text-5xl md:text-8xl font-extralight tracking-tight text-stone-800 transition-all duration-500 group-hover:text-mint-600 select-none pb-4 relative z-20 cursor-default">
