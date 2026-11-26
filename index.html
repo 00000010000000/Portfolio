@@ -21,15 +21,16 @@
                         sans: ['"Noto Sans SC"', 'sans-serif'],
                     },
                     colors: {
-                        mint: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
+                        columbia: {
+                            50: '#eff7fc',
+                            100: '#e2f0f8',
+                            200: '#b9d9eb',
+                            300: '#9ec5df',
+                            400: '#5a95c3',
+                            500: '#3678ae',
+                            600: '#1d4f91',
+                            700: '#163e74',
+                            800: '#12325e'
                         }
                     }
                 }
@@ -42,14 +43,14 @@
             background-color: #fcfcfc;
             color: #1a1a1a;
             overflow-x: hidden;
-            cursor: none; /* Hide default cursor to use custom mint cursor */
+            cursor: none; /* Hide default cursor to use custom cursor */
         }
         
-        /* Custom Mint Cursor styling */
+        /* Custom Cursor styling */
         .custom-cursor {
             width: 8px;
             height: 8px;
-            background-color: #34d399; /* Mint green */
+            background-color: #1d4f91;
             border-radius: 50%;
             position: fixed;
             transform: translate(-50%, -50%);
@@ -60,7 +61,7 @@
         .custom-cursor-follower {
             width: 32px;
             height: 32px;
-            border: 1px solid rgba(52, 211, 153, 0.4);
+            border: 1px solid rgba(29, 79, 145, 0.4);
             border-radius: 50%;
             position: fixed;
             transform: translate(-50%, -50%);
@@ -73,13 +74,13 @@
         .cursor-hover .custom-cursor {
             width: 12px;
             height: 12px;
-            background-color: #059669;
+            background-color: #163e74;
         }
         .cursor-hover .custom-cursor-follower {
             width: 48px;
             height: 48px;
-            border-color: rgba(5, 150, 105, 0.8);
-            background-color: rgba(167, 243, 208, 0.15);
+            border-color: rgba(22, 62, 116, 0.8);
+            background-color: rgba(185, 217, 235, 0.3);
         }
 
         /* Glassmorphism Classes */
@@ -135,7 +136,7 @@
         }
         .folder:hover {
             transform: rotateY(10deg) rotateX(10deg) translateY(-8px);
-            box-shadow: 0 20px 40px rgba(167, 243, 208, 0.25);
+            box-shadow: 0 20px 40px rgba(185, 217, 235, 0.45);
         }
         .folder-back {
             background: #e2e8f0;
@@ -165,13 +166,13 @@
 
         /* Page Dots Navigation active glow */
         .active-dot {
-            background-color: #34d399 !important;
+            background-color: #1d4f91 !important;
             transform: scale(1.3);
-            box-shadow: 0 0 8px #34d399;
+            box-shadow: 0 0 8px #1d4f91;
         }
     </style>
 </head>
-<body class="font-sans antialiased text-stone-800 selection:bg-mint-200">
+<body class="font-sans antialiased text-stone-800 selection:bg-columbia-200">
 
     <!-- Custom Pointer -->
     <div id="cursor" class="custom-cursor hidden md:block"></div>
@@ -189,19 +190,19 @@
 
     <!-- Side Dot Tracker Navigation -->
     <div class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden flex-col gap-4 md:flex">
-        <a href="#home" data-section="home" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
-        <a href="#about" data-section="about" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
-        <a href="#skills" data-section="skills" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
-        <a href="#experience" data-section="experience" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
-        <a href="#project" data-section="project" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
-        <a href="#contact" data-section="contact" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-mint-400 transition-all duration-300"></a>
+        <a href="#home" data-section="home" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-columbia-400 transition-all duration-300"></a>
+        <a href="#about" data-section="about" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-columbia-400 transition-all duration-300"></a>
+        <a href="#skills" data-section="skills" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-columbia-400 transition-all duration-300"></a>
+        <a href="#experience" data-section="experience" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-columbia-400 transition-all duration-300"></a>
+        <a href="#project" data-section="project" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-columbia-400 transition-all duration-300"></a>
+        <a href="#contact" data-section="contact" class="dot-nav w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-columbia-400 transition-all duration-300"></a>
     </div>
 
     <!-- ================= PAGE 1: HERO SECTION ================= -->
     <section id="home" class="relative min-h-screen w-full flex flex-col justify-center items-center bg-[#fafaf9] overflow-hidden px-4">
-        <!-- Background subtle mint ambient glow -->
-        <!-- <div class="absolute w-[600px] h-[600px] rounded-full bg-mint-100/30 blur-[130px] -top-20 -left-20 pointer-events-none"></div> -->
-        <div class="absolute w-[500px] h-[500px] rounded-full bg-mint-50/25 blur-[100px] -bottom-20 -right-20 pointer-events-none"></div>
+        <!-- Background subtle Columbia blue glow -->
+        <!-- <div class="absolute w-[600px] h-[600px] rounded-full bg-columbia-100/30 blur-[130px] -top-20 -left-20 pointer-events-none"></div> -->
+        <div class="absolute w-[500px] h-[500px] rounded-full bg-columbia-200/40 blur-[100px] -bottom-20 -right-20 pointer-events-none"></div>
 
         <!-- Interactive Text Container -->
         <div class="hero-container flex flex-col items-center">
@@ -210,7 +211,7 @@
             <div class="relative inline-block group">
                 
                 <!-- Center Name with Magnetic/Interactive Hover Design -->
-                <h1 class="text-5xl md:text-8xl font-extralight tracking-tight text-stone-800 transition-all duration-500 group-hover:text-mint-600 select-none pb-4 relative z-20 cursor-default">
+                <h1 class="text-5xl md:text-8xl font-extralight tracking-tight text-stone-800 transition-all duration-500 group-hover:text-columbia-600 select-none pb-4 relative z-20 cursor-default">
                     Song Xinyan
                 </h1>
 
@@ -219,19 +220,19 @@
                 <!-- <div class="hero-dropdown absolute left-1/2 top-full -translate-x-1/2 mt-6 z-30 glass rounded-2xl shadow-xl p-3 min-w-[220px]"> -->
                     <div class="glass rounded-2xl shadow-xl p-3 min-w-[220px]">
                         <div class="flex flex-col gap-1 text-center">
-                            <a href="#about" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
+                            <a href="#about" class="dropdown-item py-3 px-4 rounded-xl hover:bg-columbia-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                                 About Me
                             </a>
-                            <a href="#skills" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
+                            <a href="#skills" class="dropdown-item py-3 px-4 rounded-xl hover:bg-columbia-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                                 Skills
                             </a>
-                            <a href="#experience" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
+                            <a href="#experience" class="dropdown-item py-3 px-4 rounded-xl hover:bg-columbia-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                                 Experience
                             </a>
-                            <a href="#project" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
+                            <a href="#project" class="dropdown-item py-3 px-4 rounded-xl hover:bg-columbia-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                                 Project
                             </a>
-                            <a href="#contact" class="dropdown-item py-3 px-4 rounded-xl hover:bg-mint-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
+                            <a href="#contact" class="dropdown-item py-3 px-4 rounded-xl hover:bg-columbia-50 text-stone-600 hover:text-stone-900 text-sm tracking-widest font-light uppercase transition-all duration-200">
                                 Contact Me
                             </a>
                         </div>
@@ -277,7 +278,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-stone-800/20 to-transparent mix-blend-multiply"></div>
                         
                         <div class="relative z-10">
-                            <span class="text-xs tracking-widest text-blue-300 uppercase font-light">Song Xinyan</span>
+                            <span class="text-xs tracking-widest text-columbia-300 uppercase font-light">Song Xinyan</span>
                             <h3 class="text-lg text-white font-light tracking-wide mt-1">Computer Science Student</h3>
                             <p class="text-[11px] text-stone-300 font-light mt-1">CUHKSZ CS Alumna • 2026</p>
                             <p class="text-[11px] text-stone-300 font-light mt-0.5">Columbia University, School of Engineering — M.S. in AI (Robotics Perception) • 2026 Fall</p>
@@ -291,7 +292,7 @@
                 
                 <!-- Section: Profile -->
                 <div class="border-b border-stone-100 pb-6">
-                    <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-2">Profile</h3>
+                    <h3 class="text-xs uppercase tracking-widest text-columbia-600 font-medium mb-2">Profile</h3>
                     <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base">
                         A persistent, tech-driven researcher and engineer with solid technical foundations in Computer Science. Specialized in automated testing pipelines, machine learning algorithms, computer vision pipelines, and multi-robot autonomous navigation workflows.
                     </p>
@@ -299,7 +300,7 @@
 
                 <!-- Section: Education -->
                 <div class="border-b border-stone-100 pb-6">
-                    <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-3">Education</h3>
+                    <h3 class="text-xs uppercase tracking-widest text-columbia-600 font-medium mb-3">Education</h3>
                     
                     <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-2">
                         <div>
@@ -312,14 +313,19 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-2 mt-5 pt-4 border-t border-stone-100">
-                        <div>
-                            <h4 class="text-sm md:text-base font-normal text-stone-800">Columbia University, School of Engineering</h4>
-                            <p class="text-xs text-stone-500 mt-0.5">M.S. in Artificial Intelligence (Robotics Perception Track)</p>
-                        </div>
-                        <div class="text-left md:text-right">
-                            <span class="text-xs bg-stone-100 text-stone-600 px-2.5 py-1 rounded-full font-light">2026 Fall – 2028</span>
-                            <p class="text-xs text-stone-500 mt-1">Status: <span class="text-stone-800 font-medium">Incoming</span></p>
+                    <div class="mt-5 flex items-start gap-4 border-t border-stone-100 pt-4">
+                        <img src="./photo/columbia-university-shield.webp" alt="Columbia University shield and wordmark"
+                             width="750" height="750" loading="lazy" decoding="async"
+                             class="h-auto w-20 shrink-0 self-center sm:w-28">
+                        <div class="flex min-w-0 flex-1 flex-wrap items-start justify-between gap-x-4 gap-y-2">
+                            <div class="min-w-0">
+                                <h4 class="text-sm md:text-base font-normal text-stone-800">Columbia University, School of Engineering</h4>
+                                <p class="text-xs text-stone-500 mt-0.5">M.S. in Artificial Intelligence (Robotics Perception Track)</p>
+                            </div>
+                            <div class="shrink-0 text-left md:text-right">
+                                <span class="inline-flex rounded-full bg-columbia-100 px-2.5 py-1 text-xs font-light text-columbia-700">2026 Fall – 2028</span>
+                                <p class="text-xs text-stone-500 mt-1">Status: <span class="font-medium text-columbia-600">Currently Enrolled</span></p>
+                            </div>
                         </div>
                     </div>
                     
@@ -339,10 +345,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Academic Honors -->
                     <div class="glass-dark p-5 rounded-2xl border border-stone-100">
-                        <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-3">Academic Honors</h3>
+                        <h3 class="text-xs uppercase tracking-widest text-columbia-600 font-medium mb-3">Academic Honors</h3>
                         <ul class="space-y-2">
                             <li class="flex items-start gap-2 text-xs md:text-sm text-stone-600 font-light">
-                                <span class="text-mint-500 mt-1"><i class="fa-solid fa-award"></i></span>
+                                <span class="text-columbia-500 mt-1"><i class="fa-solid fa-award"></i></span>
                                 <div>
                                     <span class="font-normal text-stone-800">Dean’s Honor List</span>
                                     <p class="text-[10px] text-stone-400 mt-0.5">CUHK-Shenzhen</p>
@@ -353,7 +359,7 @@
 
                     <!-- Languages -->
                     <div class="glass-dark p-5 rounded-2xl border border-stone-100">
-                        <h3 class="text-xs uppercase tracking-widest text-mint-600 font-medium mb-3">Languages</h3>
+                        <h3 class="text-xs uppercase tracking-widest text-columbia-600 font-medium mb-3">Languages</h3>
                         <div class="space-y-3">
                             <div>
                                 <div class="flex justify-between text-xs mb-1">
@@ -361,7 +367,7 @@
                                     <span class="text-stone-400 font-light">Native</span>
                                 </div>
                                 <div class="w-full bg-stone-200 h-[3px] rounded-full overflow-hidden">
-                                    <div class="bg-mint-400 h-full w-full"></div>
+                                    <div class="bg-columbia-400 h-full w-full"></div>
                                 </div>
                             </div>
                             <div>
@@ -370,7 +376,7 @@
                                     <span class="text-stone-400 font-light">TOEFL 107 (Fluent)</span>
                                 </div>
                                 <div class="w-full bg-stone-200 h-[3px] rounded-full overflow-hidden">
-                                    <div class="bg-mint-400 h-full w-[90%]"></div>
+                                    <div class="bg-columbia-400 h-full w-[90%]"></div>
                                 </div>
                             </div>
                         </div>
@@ -418,10 +424,10 @@
                         <div id="skills-track" class="flex gap-6 overflow-x-auto no-scrollbar py-4 px-2 snap-x snap-mandatory scroll-smooth" style="scroll-behavior: smooth;">
                             
                             <!-- Skill Card 1: Languages & Logic -->
-                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-blue-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
-                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-code"></i></div>
+                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-columbia-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
+                                <div class="absolute top-4 right-4 text-columbia-600 opacity-60"><i class="fa-solid fa-code"></i></div>
                                 <div>
-                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">01 / Languages</span>
+                                    <span class="text-[10px] text-columbia-600 uppercase tracking-widest font-semibold block mb-1">01 / Languages</span>
                                     <h4 class="text-stone-800 font-medium text-lg mb-4">Core Programming</h4>
                                     <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Strong foundational background constructing system routines, custom modules, and research evaluation templates.</p>
                                 </div>
@@ -434,10 +440,10 @@
                             </div>
 
                             <!-- Skill Card 2: Technical Domains -->
-                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-blue-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
-                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-microchip"></i></div>
+                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-columbia-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
+                                <div class="absolute top-4 right-4 text-columbia-600 opacity-60"><i class="fa-solid fa-microchip"></i></div>
                                 <div>
-                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">02 / Architecture</span>
+                                    <span class="text-[10px] text-columbia-600 uppercase tracking-widest font-semibold block mb-1">02 / Architecture</span>
                                     <h4 class="text-stone-800 font-medium text-lg mb-4">Technical Fields</h4>
                                     <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Familiar with performance testing under complex hardware architectures, dynamic profiling, and state assessment.</p>
                                 </div>
@@ -450,10 +456,10 @@
                             </div>
 
                             <!-- Skill Card 3: Design & Tools -->
-                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-blue-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
-                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-compass-drafting"></i></div>
+                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-columbia-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
+                                <div class="absolute top-4 right-4 text-columbia-600 opacity-60"><i class="fa-solid fa-compass-drafting"></i></div>
                                 <div>
-                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">03 / Production</span>
+                                    <span class="text-[10px] text-columbia-600 uppercase tracking-widest font-semibold block mb-1">03 / Production</span>
                                     <h4 class="text-stone-800 font-medium text-lg mb-4">Design & Media</h4>
                                     <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Skillful in visual representations, mockup styling, technical presentation styling, and drafting clean structural charts.</p>
                                 </div>
@@ -465,10 +471,10 @@
                             </div>
 
                             <!-- Skill Card 4: Frameworks & Deployments -->
-                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-blue-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
-                                <div class="absolute top-4 right-4 text-mint-600 opacity-60"><i class="fa-solid fa-cubes"></i></div>
+                            <div class="snap-start shrink-0 w-72 md:w-80 glass rounded-2xl p-6 flex flex-col justify-between border border-white/10 shadow-lg relative cursor-pointer hover:border-columbia-300 transition-all" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
+                                <div class="absolute top-4 right-4 text-columbia-600 opacity-60"><i class="fa-solid fa-cubes"></i></div>
                                 <div>
-                                    <span class="text-[10px] text-mint-600 uppercase tracking-widest font-semibold block mb-1">04 / Stack</span>
+                                    <span class="text-[10px] text-columbia-600 uppercase tracking-widest font-semibold block mb-1">04 / Stack</span>
                                     <h4 class="text-stone-800 font-medium text-lg mb-4">Frameworks & OS</h4>
                                     <p class="text-xs text-stone-500 font-light leading-relaxed mb-4">Experienced using automated benchmarking environments and factor graph frameworks on local or distributed devices.</p>
                                 </div>
@@ -487,9 +493,9 @@
                     <div class="flex justify-between items-center mt-3 text-stone-500">
                         <span class="text-[10px] text-slate-500 font-mono">Status: Connected to CUHKSZ_Net</span>
                         <div class="flex items-center gap-3">
-                            <button id="slide-left" class="hover:text-mint-400 transition-colors p-1"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                            <button id="slide-left" class="hover:text-columbia-400 transition-colors p-1"><i class="fa-solid fa-chevron-left text-xs"></i></button>
                             <span class="text-[10px] font-mono tracking-widest text-slate-400"><span id="active-card-num">1</span>/4</span>
-                            <button id="slide-right" class="hover:text-mint-400 transition-colors p-1"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+                            <button id="slide-right" class="hover:text-columbia-400 transition-colors p-1"><i class="fa-solid fa-chevron-right text-xs"></i></button>
                         </div>
                     </div>
                 </div>
@@ -504,7 +510,7 @@
 
             <!-- Hint indicators for trackpad/scroll behavior -->
             <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-6 font-light">
-                <i class="fa-solid fa-circle-info mr-1 text-mint-500"></i> Hover and Scroll / drag horizontally across the cards
+                <i class="fa-solid fa-circle-info mr-1 text-columbia-500"></i> Hover and Scroll / drag horizontally across the cards
             </p>
         </div>
     </section>
@@ -540,11 +546,11 @@
                     <!-- Internship Item 1: ARM China -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-columbia-300 bg-white group-hover:bg-columbia-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Shanghai, Austin</span>
+                                <span class="text-[11px] font-mono tracking-widest text-columbia-600 font-semibold uppercase block">Shanghai, Austin</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">ARM China (Anmou Technology)</h3>
                                 <p class="text-xs text-stone-500">Automation Performance Intern</p>
                             </div>
@@ -552,15 +558,15 @@
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Responsible for benchmark automation testing and performance evaluation, executing large-scale benchmark experiments under various kernel configurations and system environments.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Analyzed system behaviors including CPU scheduling, memory management, and I/O, identified root causes of benchmark output discrepancies across different kernel versions, generated analysis reports.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Explored performance correlations between software systems and hardware architectures, participating in Linux system performance analysis and automated profiling tool development.</span>
                             </li>
                         </ul>
@@ -569,11 +575,11 @@
                     <!-- Internship Item 2: Canqoon -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-columbia-300 bg-white group-hover:bg-columbia-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Shanghai</span>
+                                <span class="text-[11px] font-mono tracking-widest text-columbia-600 font-semibold uppercase block">Shanghai</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">Shenzhen Canqoon Technology</h3>
                                 <p class="text-xs text-stone-500">Software Intern</p>
                             </div>
@@ -581,15 +587,15 @@
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Designed scalable software architecture supporting dynamic robot joining and distributed message synchronization. Built a centralized factor-graph backend using GTSAM, integrating IMU pre-integration and inter-robot acoustic ranging for global consistent pose optimization with dynamic joining and real-time publishing.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Built modular navigation and localization services under Linux with real-time sensor processing.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Designed scalable software architecture supporting dynamic robot joining and distributed message synchronization. Developed a complete SLAM and navigation system enabling autonomous navigation, dynamic following, and multi-robot exploration based on audio localization under asynchronous sensor settings.</span>
                             </li>
                         </ul>
@@ -598,11 +604,11 @@
                     <!-- Internship Item 3: Hefei National Science Center -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-columbia-300 bg-white group-hover:bg-columbia-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Hefei, Anhui</span>
+                                <span class="text-[11px] font-mono tracking-widest text-columbia-600 font-semibold uppercase block">Hefei, Anhui</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">Hefei Comprehensive National Science Center</h3>
                                 <p class="text-xs text-stone-500">Algorithm Intern</p>
                             </div>
@@ -610,11 +616,11 @@
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Developed computer vision models for image quality assessment and NSFW classification, designing a self-distillation joint weighted loss to boost accuracy to <span class="font-medium text-stone-800">93.55%</span>.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Co-authored a patent and paper on fine-grained NSFW classification using softened-Softmax for inter-class knowledge transfer, and another patent on blockchain-based dynamic attribute access control with efficient update algorithms.</span>
                             </li>
                         </ul>
@@ -626,11 +632,11 @@
                 <div id="content-project_exp" class="hidden space-y-12 transition-all duration-300">
                     
                     <div class="relative pl-8 border-l border-stone-150 group">
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-columbia-300 bg-white group-hover:bg-columbia-400 transition-colors duration-200"></div>
 
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Python / OpenCV / YOLO11n / Ollama / PaddleOCR</span>
+                                <span class="text-[11px] font-mono tracking-widest text-columbia-600 font-semibold uppercase block">Python / OpenCV / YOLO11n / Ollama / PaddleOCR</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">VisionAssist — Visual Obstacle Avoidance</h3>
                                 <p class="text-xs text-stone-500 mt-1">A visual assistance prototype for people with visual impairments.</p>
                             </div>
@@ -638,15 +644,15 @@
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1" aria-hidden="true"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1" aria-hidden="true"><i class="fa-solid fa-caret-right"></i></span>
                                 <span><strong class="font-medium text-stone-800">Stereo ranging.</strong> Calibrated and synchronized two smartphone cameras over WebRTC, compared StereoSGBM and RAFT-Stereo, and estimated obstacle distances. Measured a P95 vertical rectification error of 0.94 px across nine held-out stereo pairs.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1" aria-hidden="true"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1" aria-hidden="true"><i class="fa-solid fa-caret-right"></i></span>
                                 <span><strong class="font-medium text-stone-800">AI voice assistant.</strong> Built a local English and Mandarin voice assistant using Ollama, faster-whisper, and Piper for live scene Q&amp;A and voice-based personal item registration and lookup backed by SQLite.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1" aria-hidden="true"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1" aria-hidden="true"><i class="fa-solid fa-caret-right"></i></span>
                                 <span><strong class="font-medium text-stone-800">Object detection and OCR.</strong> Used YOLO11n for live object detection and PP-OCRv5 to read signs aloud. Offline multi-frame OCR confirmed nine room signs across two recorded clips without duplicate outputs.</span>
                             </li>
                         </ul>
@@ -655,26 +661,26 @@
                     <!-- Research Project 1: Multi-Robot Localization -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-columbia-300 bg-white group-hover:bg-columbia-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">C++ / Python / GTSAM</span>
+                                <span class="text-[11px] font-mono tracking-widest text-columbia-600 font-semibold uppercase block">C++ / Python / GTSAM</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">Distributed Multi-Robot Localization Based on Factor Graph Fusion</h3>
                             </div>
                             <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">May 2025 – Dec 2026</span>
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Built a centralized factor-graph backend using GTSAM, integrating IMU pre-integration and inter-robot acoustic ranging for global consistent pose optimization.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Designed IMU, Range, and bias-continuity factors, employing the ISAM2 incremental optimizer for real-time efficiency and drift suppression.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Developed navigation systems; reduced end-to-end task completion time by <span class="font-medium text-stone-800">40%</span> using robust audio localization metrics.</span>
                             </li>
                         </ul>
@@ -683,22 +689,22 @@
                     <!-- Research Project 2: Tower Defense Game -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-columbia-300 bg-white group-hover:bg-columbia-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">C++ / Unity / OpenAI API</span>
+                                <span class="text-[11px] font-mono tracking-widest text-columbia-600 font-semibold uppercase block">C++ / Unity / OpenAI API</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">Tower Defense Battle Game Development</h3>
                             </div>
                             <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">Oct 2024 – Dec 2024</span>
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Designed campus-themed game loop implementing enemy path planning, custom object pooling, currency, and upgrades.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Integrated GPT APIs to instantly parse natural-language descriptions into active compilable parameters for personalized tower traits.</span>
                             </li>
                         </ul>
@@ -707,22 +713,22 @@
                     <!-- Research Project 3: Urban Traffic Forecasting -->
                     <div class="relative pl-8 border-l border-stone-150 group">
                         <!-- Dot Indicator -->
-                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-mint-300 bg-white group-hover:bg-mint-400 transition-colors duration-200"></div>
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-columbia-300 bg-white group-hover:bg-columbia-400 transition-colors duration-200"></div>
                         
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
                             <div>
-                                <span class="text-[11px] font-mono tracking-widest text-mint-600 font-semibold uppercase block">Python / Matlab / STSGCN</span>
+                                <span class="text-[11px] font-mono tracking-widest text-columbia-600 font-semibold uppercase block">Python / Matlab / STSGCN</span>
                                 <h3 class="text-lg font-medium text-stone-800 mt-0.5">Urban Traffic Flow Forecasting Model</h3>
                             </div>
                             <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-fit font-light self-start md:self-auto">Jan 2025 – May 2025</span>
                         </div>
                         <ul class="space-y-2.5 text-xs md:text-sm text-stone-600 font-light leading-relaxed">
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Led spatial-temporal network designs utilizing STSGCN for spatiotemporal modeling, yielding <span class="font-medium text-stone-800">92.5%</span> estimation accuracy on intersections.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="text-mint-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
+                                <span class="text-columbia-400 mt-1"><i class="fa-solid fa-caret-right"></i></span>
                                 <span>Built continuous preprocessing pipeline across 100+ stations over 28 continuous days.</span>
                             </li>
                         </ul>
@@ -744,7 +750,7 @@
 
         <div class="max-w-5xl mx-auto w-full relative z-10 flex flex-col items-center">
             <div class="text-center max-w-xl mb-16">
-                <span class="text-xs uppercase tracking-widest text-mint-600 font-medium">Slides &amp; Source Code</span>
+                <span class="text-xs uppercase tracking-widest text-columbia-600 font-medium">Slides &amp; Source Code</span>
                 <h3 class="text-2xl font-light text-stone-800 mt-2">Interactive Showcase Files</h3>
                 <p class="text-xs text-stone-400 mt-2 font-light">
                     Open a folder to view its slides or GitHub repository.
@@ -755,7 +761,7 @@
 
                 <!-- VisionAssist Source Code -->
                 <div class="folder-container w-full max-w-sm">
-                    <a href="https://github.com/Ai-gogogo/Visual-Obstacle-Avoidance" target="_blank" rel="noopener noreferrer" class="block rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint-600">
+                    <a href="https://github.com/Ai-gogogo/Visual-Obstacle-Avoidance" target="_blank" rel="noopener noreferrer" class="block rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-columbia-600">
                         <div class="folder w-full h-56 relative cursor-pointer">
                             <div class="folder-back absolute inset-0 rounded-xl flex items-end p-6 border border-stone-300 shadow-md">
                                 <div class="w-full h-[1px] bg-stone-300/40"></div>
@@ -763,7 +769,7 @@
                             <div class="absolute top-0 left-6 -translate-y-2.5 w-24 h-4 bg-stone-200 rounded-t-lg border-t border-x border-stone-300"></div>
                             <div class="folder-front absolute inset-x-2 bottom-2 top-4 rounded-lg flex flex-col justify-between p-5 bg-white shadow-lg">
                                 <div class="flex justify-between items-start">
-                                    <div class="p-2 rounded-lg bg-mint-50 border border-mint-200/50 text-mint-600 text-xs">
+                                    <div class="p-2 rounded-lg bg-columbia-50 border border-columbia-200/50 text-columbia-600 text-xs">
                                         <i class="fa-brands fa-github text-lg" aria-hidden="true"></i>
                                     </div>
                                     <span class="text-[9px] font-mono tracking-widest text-stone-400 font-light uppercase">Source Code</span>
@@ -771,8 +777,8 @@
                                 <div class="mt-4">
                                     <h4 class="text-stone-800 font-medium text-sm md:text-base leading-snug">VisionAssist — Visual Obstacle Avoidance</h4>
                                     <div class="flex items-center gap-1 mt-3">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-mint-400 animate-pulse" aria-hidden="true"></span>
-                                        <p class="text-[10px] text-mint-600 tracking-wider uppercase font-medium">Open on GitHub</p>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-columbia-400 animate-pulse" aria-hidden="true"></span>
+                                        <p class="text-[10px] text-columbia-600 tracking-wider uppercase font-medium">Open on GitHub</p>
                                     </div>
                                 </div>
                             </div>
@@ -793,7 +799,7 @@
                             <!-- Front Sheet (Slide representation) -->
                             <div class="folder-front absolute inset-x-2 bottom-2 top-4 rounded-lg flex flex-col justify-between p-5 bg-white shadow-lg">
                                 <div class="flex justify-between items-start">
-                                    <div class="p-2 rounded-lg bg-mint-50 border border-mint-200/50 text-mint-600 text-xs">
+                                    <div class="p-2 rounded-lg bg-columbia-50 border border-columbia-200/50 text-columbia-600 text-xs">
                                         <i class="fa-regular fa-file-powerpoint text-lg"></i>
                                     </div>
                                     <span class="text-[9px] font-mono tracking-widest text-stone-400 font-light uppercase">Feishu Slides #01</span>
@@ -801,8 +807,8 @@
                                 <div class="mt-4">
                                     <h4 class="text-stone-800 font-medium text-sm md:text-base leading-snug">Song Xinyan's Academic & Engineering Slide Showcase</h4>
                                     <div class="flex items-center gap-1 mt-3">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-mint-400 animate-pulse"></span>
-                                        <p class="text-[10px] text-mint-600 tracking-wider uppercase font-medium">Click to Launch Slide</p>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-columbia-400 animate-pulse"></span>
+                                        <p class="text-[10px] text-columbia-600 tracking-wider uppercase font-medium">Click to Launch Slide</p>
                                     </div>
                                 </div>
                             </div>
@@ -823,7 +829,7 @@
                             <!-- Front Sheet -->
                             <div class="folder-front absolute inset-x-2 bottom-2 top-4 rounded-lg flex flex-col justify-between p-5 bg-white shadow-lg">
                                 <div class="flex justify-between items-start">
-                                    <div class="p-2 rounded-lg bg-mint-50 border border-mint-200/50 text-mint-600 text-xs">
+                                    <div class="p-2 rounded-lg bg-columbia-50 border border-columbia-200/50 text-columbia-600 text-xs">
                                         <i class="fa-regular fa-file-powerpoint text-lg"></i>
                                     </div>
                                     <span class="text-[9px] font-mono tracking-widest text-stone-400 font-light uppercase">Feishu Slides #02</span>
@@ -831,8 +837,8 @@
                                 <div class="mt-4">
                                     <h4 class="text-stone-800 font-medium text-sm md:text-base leading-snug">Portfolio Documents & Project Reports Overview</h4>
                                     <div class="flex items-center gap-1 mt-3">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-mint-400 animate-pulse"></span>
-                                        <p class="text-[10px] text-mint-600 tracking-wider uppercase font-medium">Click to Launch Slide</p>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-columbia-400 animate-pulse"></span>
+                                        <p class="text-[10px] text-columbia-600 tracking-wider uppercase font-medium">Click to Launch Slide</p>
                                     </div>
                                 </div>
                             </div>
@@ -853,7 +859,7 @@
 
         <div class="max-w-4xl mx-auto w-full relative z-10 flex flex-col items-center">
             <div class="text-center mb-16">
-                <span class="text-xs uppercase tracking-widest text-mint-600 font-medium">Get in Touch</span>
+                <span class="text-xs uppercase tracking-widest text-columbia-600 font-medium">Get in Touch</span>
                 <h3 class="text-3xl font-light text-stone-800 mt-2">Let's Connect</h3>
                 <p class="text-xs text-stone-400 mt-2 font-light max-w-md">
                     Click any element below to instantly copy details to your clipboard.
@@ -861,42 +867,42 @@
             </div>
 
             <!-- Copier Feedback Box (Floating alert indicator) -->
-            <div id="copy-toast" class="opacity-0 translate-y-2 pointer-events-none transition-all duration-300 mb-6 bg-mint-50 border border-mint-200 px-6 py-2.5 rounded-full flex items-center gap-2">
-                <i class="fa-solid fa-circle-check text-mint-600 text-xs"></i>
-                <span class="text-xs text-mint-800 tracking-wider font-light">Copied successfully, please contact me!~</span>
+            <div id="copy-toast" class="opacity-0 translate-y-2 pointer-events-none transition-all duration-300 mb-6 bg-columbia-50 border border-columbia-200 px-6 py-2.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-columbia-600 text-xs"></i>
+                <span class="text-xs text-columbia-800 tracking-wider font-light">Copied successfully, please contact me!~</span>
             </div>
 
             <!-- Interactivity Copy Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
                 
                 <!-- Email Copy Card -->
-                <div onclick="copyTextToClipboard('songxinyan2026@gmail.com')" class="glass hover:bg-mint-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-mint-300 hover:shadow-lg transition-all duration-300 relative group">
-                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-mint-600 transition-colors">
+                <div onclick="copyTextToClipboard('songxinyan2026@gmail.com')" class="glass hover:bg-columbia-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-columbia-300 hover:shadow-lg transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-columbia-600 transition-colors">
                         <i class="fa-regular fa-envelope text-lg"></i>
                     </div>
                     <span class="text-[10px] text-stone-400 uppercase tracking-widest font-light mt-4">Email Address</span>
                     <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5 break-all">songxinyan2026@gmail.com</span>
-                    <span class="text-[9px] text-mint-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
+                    <span class="text-[9px] text-columbia-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
                 </div>
 
                 <!-- Phone Copy Card -->
-                <div onclick="copyTextToClipboard('+1 6463853947')" class="glass hover:bg-mint-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-mint-300 hover:shadow-lg transition-all duration-300 relative group">
-                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-mint-600 transition-colors">
+                <div onclick="copyTextToClipboard('+1 6463853947')" class="glass hover:bg-columbia-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-columbia-300 hover:shadow-lg transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-columbia-600 transition-colors">
                         <i class="fa-solid fa-mobile-screen text-lg"></i>
                     </div>
                     <span class="text-[10px] text-stone-400 uppercase tracking-widest font-light mt-4">Phone Number</span>
                     <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5">+1 6463853947</span>
-                    <span class="text-[9px] text-mint-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
+                    <span class="text-[9px] text-columbia-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
                 </div>
 
                 <!-- WeChat Copy Card -->
-                <div onclick="copyTextToClipboard('XY1412257239')" class="glass hover:bg-mint-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-mint-300 hover:shadow-lg transition-all duration-300 relative group">
-                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-mint-600 transition-colors">
+                <div onclick="copyTextToClipboard('XY1412257239')" class="glass hover:bg-columbia-50/20 border border-stone-200/60 p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-columbia-300 hover:shadow-lg transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-full bg-stone-50 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-columbia-600 transition-colors">
                         <i class="fa-brands fa-weixin text-lg"></i>
                     </div>
                     <span class="text-[10px] text-stone-400 uppercase tracking-widest font-light mt-4">WeChat ID</span>
                     <span class="text-xs md:text-sm text-stone-700 font-normal mt-1.5">XY1412257239</span>
-                    <span class="text-[9px] text-mint-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
+                    <span class="text-[9px] text-columbia-600 opacity-0 group-hover:opacity-100 transition-opacity mt-2 font-medium tracking-wide">CLICK TO COPY</span>
                 </div>
 
             </div>
